@@ -1,0 +1,16 @@
+# references:
+# https://medium.com/@cashisclay/kubernetes-ingress-82aa960f658e
+# https://hackernoon.com/setting-up-nginx-ingress-on-kubernetes-2b733d8d2f45
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: krebseng-site-ingress
+spec:
+  rules:
+    - host: www.krebseng.com.br
+      http:
+        paths:
+          - backend:
+              serviceName: krebseng-site-node-port
+              servicePort: 3000
